@@ -10,3 +10,14 @@
     flex-direction: column;
     padding-top: 20px;
 }
+
+nav{
+  background-color: #C9C5C5;
+}
+
+nav ul{
+  display: inline-flex;
+  gap: 1rem;
+  list-style: none;
+}
+
