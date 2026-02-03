@@ -9,7 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { SideBar } from "./routes/SideBar/SideBar";
+import { SideBar } from "./components/SideBar/SideBar";
 import Header from "./components/Header/Header";
 
 export const links: Route.LinksFunction = () => [
