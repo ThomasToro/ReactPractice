@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Ppt.css";
 
 export default function Ppt(){
     //Haremos un piedra papel o tijera donde el usuario verá 3 imagenes, una de piedra, tra de papel y otra de tijera, las 3 son circulares, y cuando escoja la primera por ejemplo, o sea hacerle clic, lo que pasará es que se activará la funcion de generar resultado y de  acuerdo a eso, el resultado se mostrara en pantalla teniendo en cuneta el resultado que se generó en generarresultado, tambien tendremos un contador de vitorias y derrotas
@@ -52,65 +53,46 @@ export default function Ppt(){
          setResultado(mensaje);
 
     }
-    return(
-        <div>
+    return (
+        <div className="juego-container">
             <h1>Piedra Papel o Tijera</h1>
-            <p>Escoge una opcion</p>
+            <p>Escoge una opcion:</p>
 
-            <div>
-                <button onClick={()=> jugar(1)} title="Pieda">
-                    <img src="/piedra.png" alt="Piedra"  width={100} height={100}/>
+            <div className="opciones-contenedor">
+                <button className="boton-opcion" onClick={() => jugar(1)} title="Piedra">
+                    <img src="/piedra.png" alt="Piedra" width={100} height={100} />
                 </button>
 
-                <button onClick={()=> jugar(2)} title="Papel">
-                    <img src="/papel.png" alt="Papel"  width={100} height={100}/>
+                <button className="boton-opcion" onClick={() => jugar(2)} title="Papel">
+                    <img src="/papel.png" alt="Papel" width={100} height={100} />
                 </button>
 
-                <button onClick={()=> jugar(3)} title="Tijera">
-                    <img src="/tijera.png" alt="Tijera"  width={100} height={100}/>
+                <button className="boton-opcion" onClick={() => jugar(3)} title="Tijera">
+                    <img src="/tijera.png" alt="Tijera" width={100} height={100} />
                 </button>
             </div>
 
-            <div>
-
-                <div>
+            
+            {resultado && (
+                <div className="caja-resultado">
                     <h3>{resultado}</h3>
-                    <h3>{ (
-                        <img src={imagenResultado[resultado]}
-                        alt="Ganaste"
-                        width={400}
-                        height={400}
-                        />
-
-                    )}</h3>
-
-
+                    <img 
+                        src={imagenResultado[resultado]} 
+                        alt="Resultado del juego" 
+                        width={250} 
+                    />
                 </div>
+            )}
 
-                <div>
-                    <div>
-                        <h3>Vicorias: <span>{victorias}</span></h3>
-                        
-                    </div>
-
-                    <div>
-                        <h3>Derrotas: <span>{derrotas}</span> </h3>
-                        
-                    </div>
+            <div className="marcador">
+                <div className="victoria">
+                    <h3>Victorias: <span>{victorias}</span></h3>
+                </div>
+                <div className="derrota">
+                    <h3>Derrotas: <span>{derrotas}</span></h3>
                 </div>
             </div>
-
-
-
-
-
-
-
         </div>
-        
-        
-
-
     );
 
 
